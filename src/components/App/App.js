@@ -9,7 +9,7 @@ class App extends Component {
  
   render() {
     return (
-    
+      <h1>Ash is the best</h1>
     );
   }
 }
