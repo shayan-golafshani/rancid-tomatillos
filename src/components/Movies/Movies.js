@@ -18,9 +18,9 @@ const Movies = ({movies}) => {
     })
 
      return (
-         <>
+         <div className='movie-container'>
              {testMovies}
-         </>
+         </div>
      )
 
 }
