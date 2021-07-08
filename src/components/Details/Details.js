@@ -22,6 +22,7 @@ const Details = ({selectedMovie}) => {
             className='details-card'
             id={id}
         >
+            <button>Go Back</button>
             <h2>{title}</h2>
             <p>{tagline}</p>
             <img src={backdrop_path} alt={`${title} backdrop image`}/>
