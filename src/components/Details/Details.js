@@ -23,15 +23,18 @@ const Details = ({selectedMovie}) => {
             id={id}
         >
             <h2>{title}</h2>
-            <img src={backdrop_path} alt={`${title} backdrop image`}/>
-            <p>{overview}</p>
-            <p>{release_date}</p>     
-            <p>{average_rating}</p>
-            <p>{genres}</p>
-            <p>{budget}</p>
-            <p>{revenue}</p>
-            <p>{runtime}</p>
             <p>{tagline}</p>
+            <img src={backdrop_path} alt={`${title} backdrop image`}/>
+            <h3>Description</h3>
+            <p>{overview}</p>
+            <p>Release Date: {release_date}</p>     
+            <p>{average_rating.toFixed(1)} ⭐️</p>
+            <p>Film genre: {genres}</p>
+            <p>Film budget: ${budget}</p>
+            <p>Box Office Revenue : ${revenue}</p> {// Round to millions 
+            }
+            <p>{runtime} minutes</p>
+            
         </div>
     )
 }
