@@ -1,18 +1,18 @@
-import { render } from '@testing-library/react'
-import './Movies.css'
-import MovieCard from '../MovieCard/MovieCard'
 import React from 'react'
+import MovieCard from '../MovieCard/MovieCard'
+import './Movies.css'
 
-const Movies = ({movies}) => {
- 
+const Movies = ({movies, displayMovie}) => {
+
     let testMovies = movies.map(movie => {
        return (
             <MovieCard
-            title={movie.title}
-            rating={movie.average_rating}
-            imageSrc={movie.poster_path}
-            id={movie.id}
-            key={movie.id} 
+                title={movie.title}
+                rating={movie.average_rating}
+                imageSrc={movie.poster_path}
+                id={movie.id}
+                key={movie.id}
+                displayMovie={displayMovie}
             />
         )
     })
@@ -24,5 +24,4 @@ const Movies = ({movies}) => {
      )
 
 }
-
 export default Movies;

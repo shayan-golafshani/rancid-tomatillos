@@ -9,6 +9,11 @@ class App extends Component {
     this.state = {
       movies: movieData.movies
     }
+    this.displayMovie = this.displayMovie.bind(this);
+  }
+
+   displayMovie(id) {
+    console.log('Passing movie details through!' , id)
   }
  
   render() {
@@ -17,7 +22,10 @@ class App extends Component {
         <nav>
           <h1>Rancid Tomatillos</h1>
         </nav>
-        <Movies movies={this.state.movies}/>
+        <Movies 
+          movies={this.state.movies} 
+          displayMovie={this.displayMovie}
+        />
       </React.Fragment>
     );
   }
