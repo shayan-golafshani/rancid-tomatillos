@@ -14,8 +14,9 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Rancid Tomatillos</h1>
-        <h2> Our Movie APP</h2>
+        <nav>
+          <h1>Rancid Tomatillos</h1>
+        </nav>
         <Movies movies={this.state.movies}/>
       </React.Fragment>
     );
