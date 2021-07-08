@@ -1,7 +1,7 @@
 import React from 'react'
 import './Details.css'
 
-const Details = ({selectedMovie}) => {
+const Details = ({selectedMovie, returnHome}) => {
     
     const {
         id,
@@ -22,7 +22,7 @@ const Details = ({selectedMovie}) => {
             className='details-card'
             id={id}
         >
-            <button>Go Back</button>
+            <button onClick={() => returnHome()}>Go Back</button>
             <h2>{title}</h2>
             <p>{tagline}</p>
             <img src={backdrop_path} alt={`${title} backdrop image`}/>

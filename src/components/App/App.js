@@ -17,6 +17,11 @@ class App extends Component {
     let selectedMovie = this.state.movies.find(movie => id === movie.id)
     this.setState({selectedMovie});
   }
+
+  returnHome = () => {
+    console.log('in return home')
+    this.setState({selectedMovie: {}})
+  }
  
   render() {
     return (
@@ -25,7 +30,7 @@ class App extends Component {
           <h1>Rancid Tomatillos</h1>
         </nav>
         { Object.keys(this.state.selectedMovie).length 
-          ? <Details  selectedMovie={this.state.selectedMovie}/>
+          ? <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>
           : <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
         }
       </React.Fragment>
