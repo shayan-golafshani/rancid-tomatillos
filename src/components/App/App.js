@@ -7,13 +7,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      selectedMovie:[]
     }
     this.displayMovie = this.displayMovie.bind(this);
   }
 
    displayMovie(id) {
-    console.log('Passing movie details through!' , id)
+    let selectedMovie = this.state.movies.filter(movie => id === movie.id)
+    this.setState({selectedMovie});
   }
  
   render() {
