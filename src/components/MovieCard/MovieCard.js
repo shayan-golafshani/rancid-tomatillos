@@ -1,13 +1,12 @@
 import React from 'react'
 import './MovieCard.css'
 
-const MovieCard = ({title, rating, imageSrc}) => {
+const MovieCard = ({id, title, rating, imageSrc, displayMovie}) => {
 
-    let newRating = rating.toFixed(1)
     return (
-        <div className='movie-card'>
+        <div className='movie-card' onClick={() => displayMovie(id)}>
             <h3>{title}</h3>
-            <p>{newRating} ⭐️</p>
+            <p>{rating.toFixed(1)} ⭐️</p>
             <img src={imageSrc} alt={`${title} movie poster`}/>
         </div>
     )
