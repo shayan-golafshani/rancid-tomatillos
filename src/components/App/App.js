@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
-//import movieData from '../../movieData';
+import Loading from '../Loading/Loading';
 import './App.css';
 
 class App extends Component {
@@ -45,8 +45,7 @@ class App extends Component {
         <nav>
           <h1>Rancid Tomatillos</h1>
         </nav>
-        {//!this.state.movies.length
-        }
+        {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
         {this.state.errorMessage && <h2 className='error-message'> {this.state.errorMessage} </h2>}
         { Object.keys(this.state.selectedMovie).length 
           ? <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>
