@@ -2,15 +2,41 @@
     width: auto;
     box-sizing: border-box;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 
 img {
     width: 100%;
 }
 
-h3 {
+.card-title, 
+.card-rating {
     margin: 0.1rem;
+    font-size: 2rem;
+    text-align: center;;
+}
+
+.title-rating{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(128, 143, 133, .72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.movie-card:hover{
+    transform: scale(1.15);
+}
+
+.movie-card:hover .title-rating{
+    visibility: visible;
+    opacity: 1;
 }
