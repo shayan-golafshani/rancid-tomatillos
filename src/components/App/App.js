@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
-import movieData from '../../movieData';
+//import movieData from '../../movieData';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       selectedMovie: {}
     }
+  }
+
+  componentDidMount() {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2//movies`)
+      .then(response => response.json())
+      .then(data => {
+        let movies = data.movies
+        this.setState({movies})
+      })
+      .catch(err => console.error(err, 'Error caught in get all movies request'));
   }
 
    displayMovie = (id) => {
