@@ -9,7 +9,9 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: {}
+      selectedMovie: {},
+      errorMessage: '',
+      loadingMessage:'',
     }
   }
 
@@ -20,7 +22,11 @@ class App extends Component {
         let movies = data.movies
         this.setState({movies})
       })
-      .catch(err => console.error(err, 'Error caught in get all movies request'));
+      .catch(err => {
+        console.error(err, 'Error caught in get all movies request')
+
+        this.setState({errorMessage: 'Our site is down please try again later 😔'})
+      });
   }
 
    displayMovie = (id) => {
@@ -39,6 +45,9 @@ class App extends Component {
         <nav>
           <h1>Rancid Tomatillos</h1>
         </nav>
+        {//!this.state.movies.length
+        }
+        {this.state.errorMessage && <h2 className='error-message'> {this.state.errorMessage} </h2>}
         { Object.keys(this.state.selectedMovie).length 
           ? <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>
           : <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
