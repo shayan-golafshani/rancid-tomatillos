@@ -25,7 +25,7 @@ const Details = ({selectedMovie, returnHome}) => {
             <button onClick={() => returnHome()}>Go Back</button>
             <h2>{title}</h2>
             <p>{tagline}</p>
-            <img src={backdrop_path} alt={`${title} backdrop image`}/>
+            <img src={backdrop_path} alt={`${title} backdrop`}/>
             <h3>Description</h3>
             <p>{overview}</p>
             <p>Release Date: {release_date}</p>     
