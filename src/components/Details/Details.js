@@ -8,21 +8,36 @@ class Details extends React.Component {
         this.state = {
             errorMessage: '',
             movie: {},
-            movieTrailerUrl: {},
+            movieTrailers: [],
         };
     }
 
     componentDidMount() {
-        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovie.id}`)
-        .then(response => response.json())
-        .then(data => {
-            let movie = data.movie
-            this.setState({movie})
-          })
-          .catch(err => {
-            console.error(err, 'Error caught in get request for movie details')
-            this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
-          });
+
+        let getMovie = (endpoint) => {
+           let fetchData =  
+           endpoint ?
+           fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovie.id}/${endpoint}`) 
+           : fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovie.id}`);
+
+        return fetchData
+                .then(response => response.json())
+                .then(data => {
+                if(data.movie) {
+                let movie = data.movie
+                this.setState({movie})
+                } else if(data.videos.length) {
+                    this.setState({movieTrailers: data.videos})
+                }
+            })
+            .catch(err => {
+                console.error(err, 'Error caught in get request for movie details')
+                this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
+            });
+            }
+
+          Promise.all([getMovie(), getMovie('videos')])
+          .then(promise => console.log(promise));
     }
 
     render() {
