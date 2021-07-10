@@ -1,4 +1,5 @@
 import React from 'react'
+import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import './Details.css'
 
 class Details extends React.Component {
@@ -69,6 +70,11 @@ class Details extends React.Component {
                 <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
                 <p>Film genre: {genres}</p>
                 <p>{runtime} minutes</p>
+                {
+                  this.state.movieTrailers.length  && 
+                  <MovieTrailer
+                   movieKey={this.state.movieTrailers[0].key} />
+                }
             </div>
         )
     }
