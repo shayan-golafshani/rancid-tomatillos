@@ -55,27 +55,37 @@ class Details extends React.Component {
             title,
             } = this.state.movie;
 
+            const backgroundStyle = {
+                backgroundImage:
+                `linear-gradient(to right, #1C1D1E, 60%, transparent),
+                 url(${this.state.movie.backdrop_path})`
+            }
+
         return (
-            <div 
-                className='details-card'
+            <section 
+                className='details-wrap'
                 id={id}
+                style={backgroundStyle}
             >
                 <button onClick={() => this.props.returnHome()}>Go Back</button>
-                <h2>{title}</h2>
-                <p>{tagline}</p>
-                <img src={backdrop_path} alt={`${title} backdrop`}/>
-                <h3>Description</h3>
-                <p>{overview}</p>
-                <p>Release Date: {release_date}</p>     
-                <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                <p>Film genre: {genres}</p>
-                <p>{runtime} minutes</p>
-                {
-                  this.state.movieTrailers.length  && 
-                  <MovieTrailer
-                   movieKey={this.state.movieTrailers[0].key} />
-                }
-            </div>
+                <h2 className='details-title'>{title}</h2>
+                <section className='details-content'>
+                    <p>{tagline}</p>
+                    <h3>Description</h3>
+                    <p>{overview}</p>
+                    <p>Release Date: {release_date}</p>     
+                    <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
+                    <p>Film genre: {genres}</p>
+                    <p>{runtime} minutes</p>
+                </section>
+                <section className='movie-trailer'>
+                    {
+                    this.state.movieTrailers.length  && 
+                    <MovieTrailer
+                    movieKey={this.state.movieTrailers[0].key} />
+                    }
+                </section>
+            </section>
         )
     }
 } 
