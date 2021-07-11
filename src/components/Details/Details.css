@@ -1,26 +1,29 @@
 
+.description{
+    font-size: 1.5em;;
+}
 .details {
     width: 50vw;
     color: white;
     display: flex;
     flex-direction: column;
+    padding: 2.5em;
 }
 
 .details-content{
     height: 100vh;
     display: flex;
-
 }
 
 .details-title{
-    font-size: 2em;
+    font-size: 2.3em;
+    margin-bottom: 2vh;
     text-transform: uppercase;
     font-weight:900;
 }
 
 .details-wrap {
     font-family: 'Roboto Condensed', sans-serif;
-
     height: 100vh;
     display: flex;
     flex-direction: column;

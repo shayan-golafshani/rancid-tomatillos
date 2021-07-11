@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import './MovieTrailer.css'
 
 const MovieTrailer = ({ movieKey }) => (
   <div className="video-responsive">
