@@ -56,9 +56,12 @@ class Details extends React.Component {
             } = this.state.movie;
 
             const backgroundStyle = {
+                overflow: 'hidden',
+                // objectFit: 'contain',
                 backgroundImage:
                 `linear-gradient(to right, #1C1D1E, 60%, transparent),
-                 url(${this.state.movie.backdrop_path})`
+                 url(${this.state.movie.backdrop_path})`,
+                 backgroundSize: 'cover'
             }
 
         return (
@@ -68,8 +71,8 @@ class Details extends React.Component {
                 style={backgroundStyle}
             >
                 <button onClick={() => this.props.returnHome()}>Go Back</button>
-                <h2 className='details-title'>{title}</h2>
                 <section className='details-content'>
+                    <h2 className='details-title'>{title}</h2>
                     <p>{tagline}</p>
                     <h3>Description</h3>
                     <p>{overview}</p>

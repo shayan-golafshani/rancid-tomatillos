@@ -6,9 +6,15 @@
 * {
   margin: 0;
 }
+
+html{
+  height: 100vh
+}
+
 body{
   background-color: #2c363fff;
   margin: 0;
+  height: 100vh;
 }
 
 nav{
