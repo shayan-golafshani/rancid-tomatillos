@@ -70,23 +70,25 @@ class Details extends React.Component {
                 id={id}
                 style={backgroundStyle}
             >
-                <button onClick={() => this.props.returnHome()}>Go Back</button>
+                <button className='go-back-btn' onClick={() => this.props.returnHome()}>Go Back</button>
                 <section className='details-content'>
-                    <h2 className='details-title'>{title}</h2>
-                    <p>{tagline}</p>
-                    <h3>Description</h3>
-                    <p>{overview}</p>
-                    <p>Release Date: {release_date}</p>     
-                    <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                    <p>Film genre: {genres}</p>
-                    <p>{runtime} minutes</p>
-                </section>
-                <section className='movie-trailer'>
-                    {
-                    this.state.movieTrailers.length  && 
-                    <MovieTrailer
-                    movieKey={this.state.movieTrailers[0].key} />
-                    }
+                    <section className='details'>
+                        <h2 className='details-title'>{title}</h2>
+                        <p>{tagline}</p>
+                        <h3>Description</h3>
+                        <p>{overview}</p>
+                        <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
+                        <p>Film genre: {genres}</p>
+                        <p>Release Date: {release_date}</p>     
+                        <p>{runtime} minutes</p>
+                    </section>
+                    <section className='movie-trailer'>
+                        {
+                            this.state.movieTrailers.length  && 
+                            <MovieTrailer
+                            movieKey={this.state.movieTrailers[0].key} />
+                        }
+                    </section>
                 </section>
             </section>
         )

@@ -1,7 +1,36 @@
-.details-wrap {
-    height: 100vh;
+
+.details {
+    width: 50vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
 }
 
+.details-content{
+    height: 100vh;
+    display: flex;
+
+}
+
+.details-title{
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight:900;
+}
+
+.details-wrap {
+    font-family: 'Roboto Condensed', sans-serif;
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.go-back-btn {
+    align-self:flex-end;
+
+}
 /* .backdrop{
     opacity: 0.4;
     position: absolute;
@@ -12,14 +41,11 @@
     object-fit: fill;
 } */
 
-
-.details-content,
-.details-title {
-    color: white;
-}
-
 .movie-trailer{
-    width: 5em;
+    width: 50vw;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-content:center;
 }
 
