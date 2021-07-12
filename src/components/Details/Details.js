@@ -65,27 +65,28 @@ class Details extends React.Component {
                  backgroundSize: 'cover'
             }
 
-            let details = <section className='details-content'>
-            <section className='details'>
-                <h2 className='details-title'>{title}</h2>
-                <p>{tagline}</p>
-                <h3 className='description'>Description</h3>
-                <p>{overview}</p>
-                <section className='minor-details'>
-                    <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                    <p>Film genre: {genres}</p>
-                    <p>Release Date: {release_date}</p>     
-                    <p>{runtime} minutes</p>
+            let details = 
+            <section className='details-content'>
+                <section className='details'>
+                    <h2 className='details-title'>{title}</h2>
+                    <p>{tagline}</p>
+                    <h3 className='description'>Description</h3>
+                    <p>{overview}</p>
+                    <section className='minor-details'>
+                        <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
+                        <p>Film genre: {genres}</p>
+                        <p>Release Date: {release_date}</p>     
+                        <p>{runtime} minutes</p>
+                    </section>
+                </section>
+                <section className='movie-trailer'>
+                    {
+                        this.state.movieTrailers.length  && 
+                        <MovieTrailer
+                        movieKey={this.state.movieTrailers[0].key} />
+                    }
                 </section>
             </section>
-            <section className='movie-trailer'>
-                {
-                    this.state.movieTrailers.length  && 
-                    <MovieTrailer
-                    movieKey={this.state.movieTrailers[0].key} />
-                }
-            </section>
-        </section>
 
         return (
             <section 

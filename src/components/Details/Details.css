@@ -13,6 +13,9 @@
 .details-content{
     height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
 }
 
 .details-title{
@@ -25,8 +28,8 @@
 .details-wrap {
     font-family: 'Roboto Condensed', sans-serif;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 
@@ -45,10 +48,10 @@
 } */
 
 .movie-trailer{
-    width: 50vw;
-    height: auto;
-    display: flex;
+    /* width: 100vw; */
+    height: 50vh;
+    /* display: flex;
     justify-content: center;
-    align-content:center;
+    align-content:center; */
 }
 
