@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import './Details.css'
 
@@ -64,6 +65,28 @@ class Details extends React.Component {
                  backgroundSize: 'cover'
             }
 
+            let details = <section className='details-content'>
+            <section className='details'>
+                <h2 className='details-title'>{title}</h2>
+                <p>{tagline}</p>
+                <h3 className='description'>Description</h3>
+                <p>{overview}</p>
+                <section className='minor-details'>
+                    <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
+                    <p>Film genre: {genres}</p>
+                    <p>Release Date: {release_date}</p>     
+                    <p>{runtime} minutes</p>
+                </section>
+            </section>
+            <section className='movie-trailer'>
+                {
+                    this.state.movieTrailers.length  && 
+                    <MovieTrailer
+                    movieKey={this.state.movieTrailers[0].key} />
+                }
+            </section>
+        </section>
+
         return (
             <section 
                 className='details-wrap'
@@ -71,27 +94,9 @@ class Details extends React.Component {
                 style={backgroundStyle}
             >
                 <button className='go-back-btn' onClick={() => this.props.returnHome()}>Go Back</button>
-                <section className='details-content'>
-                    <section className='details'>
-                        <h2 className='details-title'>{title}</h2>
-                        <p>{tagline}</p>
-                        <h3 className='description'>Description</h3>
-                        <p>{overview}</p>
-                        <section className='minor-details'>
-                            <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                            <p>Film genre: {genres}</p>
-                            <p>Release Date: {release_date}</p>     
-                            <p>{runtime} minutes</p>
-                        </section>
-                    </section>
-                    <section className='movie-trailer'>
-                        {
-                            this.state.movieTrailers.length  && 
-                            <MovieTrailer
-                            movieKey={this.state.movieTrailers[0].key} />
-                        }
-                    </section>
-                </section>
+                {(!Object.keys(this.state.movie).length && !this.state.movieTrailers.length && !this.state.errorMessage)
+                 && <Loading />}
+                {this.state.errorMessage ? <h2 className='error-message'> {this.state.errorMessage} </h2> : details}
             </section>
         )
     }
