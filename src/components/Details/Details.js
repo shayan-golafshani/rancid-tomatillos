@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import './Details.css'
@@ -94,7 +95,9 @@ class Details extends React.Component {
                 id={id}
                 style={backgroundStyle}
             >
-                <button className='go-back-btn' onClick={() => this.props.returnHome()}>Go Back</button>
+                <Link to='/'>
+                    <button className='go-back-btn'>Go Back</button>
+                </Link>
                 {(!Object.keys(this.state.movie).length && !this.state.movieTrailers.length && !this.state.errorMessage)
                  && <Loading />}
                 {this.state.errorMessage ? <h2 className='error-message'> {this.state.errorMessage} </h2> : details}
