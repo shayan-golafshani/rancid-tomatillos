@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
 import Loading from '../Loading/Loading';
@@ -44,7 +44,7 @@ class App extends Component {
           </nav>
           {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
           {this.state.errorMessage && <h2 className='error-message'> {this.state.errorMessage} </h2>}
-          <Switch>
+        
             <Route exact path='/'>
               <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
             </Route>
@@ -53,11 +53,7 @@ class App extends Component {
               return <Details {...selectedMovie}/>
 
             }} />
-          </Switch> 
-          {/* { Object.keys(this.state.selectedMovie).length 
-            ? <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>
-            : <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
-          } */}
+
         </React.Fragment>
   
     )
