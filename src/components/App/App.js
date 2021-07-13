@@ -48,9 +48,12 @@ class App extends Component {
             <Route exact path='/'>
               <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
             </Route>
-            <Route path={`/movie/${this.state.selectedMovie.id}`} 
-            render={() => <Details  selectedMovie={this.state.selectedMovie}/>}/>
-          </Switch>
+            <Route path='/:id' render={({match}) => {
+              const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
+              return <Details {...selectedMovie}/>
+
+            }} />
+          </Switch> 
           {/* { Object.keys(this.state.selectedMovie).length 
             ? <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>
             : <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
