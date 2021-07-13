@@ -20,8 +20,8 @@ class Details extends React.Component {
         let getMovie = (endpoint) => {
            let fetchData =  
            endpoint ?
-           fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovie.id}/${endpoint}`) 
-           : fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovie.id}`);
+           fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/${endpoint}`) 
+           : fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`);
 
         return fetchData
                 .then(response => response.json())
@@ -44,6 +44,7 @@ class Details extends React.Component {
     }
 
     render() {
+        console.log(this.props, 'THIS IS PROPS TO DETAILS')
 
         const {
             id,
