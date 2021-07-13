@@ -53,6 +53,8 @@ class App extends Component {
             <Route exact path='/'>
               <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
             </Route>
+            <Route path={`/movies/${this.state.selectedMovie.id}`} 
+            render={() => <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>}/>
           </Switch>
           {/* { Object.keys(this.state.selectedMovie).length 
             ? <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>
