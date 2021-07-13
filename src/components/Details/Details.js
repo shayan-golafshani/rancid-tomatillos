@@ -20,8 +20,8 @@ class Details extends React.Component {
         let getMovie = (endpoint) => {
            let fetchData =  
            endpoint ?
-           fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovie.id}/${endpoint}`) 
-           : fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovie.id}`);
+           fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/${endpoint}`) 
+           : fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}`);
 
         return fetchData
                 .then(response => response.json())
@@ -59,10 +59,9 @@ class Details extends React.Component {
 
             const backgroundStyle = {
                 overflow: 'hidden',
-                // objectFit: 'contain',
                 backgroundImage:
                 `linear-gradient(to right, #1C1D1E, 60%, transparent),
-                 url(${this.state.movie.backdrop_path})`,
+                 url(${backdrop_path})`,
                  backgroundSize: 'cover'
             }
 
