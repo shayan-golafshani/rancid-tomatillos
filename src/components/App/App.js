@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Switch, Link } from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
 import Loading from '../Loading/Loading';
@@ -34,11 +34,6 @@ class App extends Component {
     let selectedMovie = this.state.movies.find(movie => id === movie.id)
     this.setState({selectedMovie});
   }
-
-  returnHome = () => {
-    console.log('in return home')
-    this.setState({selectedMovie: {}})
-  }
  
   render() {
     return (
@@ -54,7 +49,7 @@ class App extends Component {
               <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
             </Route>
             <Route path={`/movie/${this.state.selectedMovie.id}`} 
-            render={() => <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>}/>
+            render={() => <Details  selectedMovie={this.state.selectedMovie}/>}/>
           </Switch>
           {/* { Object.keys(this.state.selectedMovie).length 
             ? <Details  selectedMovie={this.state.selectedMovie} returnHome={this.returnHome}/>

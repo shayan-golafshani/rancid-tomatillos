@@ -96,7 +96,7 @@ class Details extends React.Component {
                 style={backgroundStyle}
             >
                 <Link to='/'>
-                    <button className='go-back-btn' onClick={() => this.props.returnHome()}>Go Back</button>
+                    <button className='go-back-btn'>Go Back</button>
                 </Link>
                 {(!Object.keys(this.state.movie).length && !this.state.movieTrailers.length && !this.state.errorMessage)
                  && <Loading />}
