@@ -44,7 +44,6 @@ class Details extends React.Component {
     }
 
     render() {
-        console.log(this.props, 'THIS IS PROPS TO DETAILS')
 
         const {
             id,
@@ -60,10 +59,9 @@ class Details extends React.Component {
 
             const backgroundStyle = {
                 overflow: 'hidden',
-                // objectFit: 'contain',
                 backgroundImage:
                 `linear-gradient(to right, #1C1D1E, 60%, transparent),
-                 url(${this.state.movie.backdrop_path})`,
+                 url(${backdrop_path})`,
                  backgroundSize: 'cover'
             }
 
