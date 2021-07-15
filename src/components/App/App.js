@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 import './App.css';
 
 class App extends Component {
@@ -42,18 +43,19 @@ class App extends Component {
           <nav>
             <h1>Rancid Tomatillos</h1>
           </nav>
-          {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
-          {this.state.errorMessage && <h2 className='error-message'> {this.state.errorMessage} </h2>}
         
             <Route exact path='/'>
+              {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
+              {this.state.errorMessage &&  <Error />}
+              {//<h2 className='error-message'> {this.state.errorMessage} </h2> 
+              }
               <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
             </Route>
+
             <Route path='/:id' render={({match}) => {
               const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
               return <Details {...selectedMovie}/>
-
             }} />
-
         </main>
   
     )
