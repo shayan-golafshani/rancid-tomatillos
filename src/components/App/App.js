@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       
-        <React.Fragment>
+        <main>
           <nav>
             <h1>Rancid Tomatillos</h1>
           </nav>
@@ -54,7 +54,7 @@ class App extends Component {
 
             }} />
 
-        </React.Fragment>
+        </main>
   
     )
    }
