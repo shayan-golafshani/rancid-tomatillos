@@ -3,7 +3,7 @@ describe ('User Movie Selection flows', () => {
     beforeEach(() => {
         cy.fixture('movieData').then((movies) => {
             const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2';
-            cy.intercept('GET', `${baseURL}//movies`, {
+            cy.intercept('GET', `${baseURL}/movies`, {
                 statusCode: 201,
                   body: movies,
               });
@@ -16,7 +16,7 @@ describe ('User Movie Selection flows', () => {
     })
 
     it('Should be able to display movie cards on load', () => {
-
+        //cy.get('#id')
     })
 
     it('Should be able to click first movie card, should update url to matching path and display details', () => {
