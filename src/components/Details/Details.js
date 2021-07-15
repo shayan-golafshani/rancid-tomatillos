@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
+import Error from '../Error/Error';
 import './Details.css'
 
 class Details extends React.Component {
@@ -99,7 +100,10 @@ class Details extends React.Component {
                 </Link>
                 {(!Object.keys(this.state.movie).length && !this.state.movieTrailers.length && !this.state.errorMessage)
                  && <Loading />}
-                {this.state.errorMessage ? <h2 className='error-message'> {this.state.errorMessage} </h2> : details}
+                {this.state.errorMessage ? <Error /> : details}
+                {
+                //<h2 className='error-message'> {this.state.errorMessage} </h2>
+                }
             </section>
         )
     }

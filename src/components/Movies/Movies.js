@@ -18,9 +18,9 @@ const Movies = ({movies, displayMovie}) => {
     })
 
      return (
-         <div className='movie-container'>
+         <section className='movie-container'>
              {testMovies}
-         </div>
+         </section>
      )
 
 }
