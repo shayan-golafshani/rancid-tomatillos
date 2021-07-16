@@ -45,6 +45,13 @@ class Details extends React.Component {
           .then(promise => console.log(promise));
     }
 
+    updateGenres(genres){
+        if(genres) {
+            return genres.join(' | ')
+        }
+        return ''
+    }
+
     render() {
 
     const {
@@ -76,7 +83,7 @@ class Details extends React.Component {
                         <p className='tagline'>{tagline}</p>
                         <section className='minor-details'>
                             <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                            <p>Film genre:{genres}</p>
+                            <p>Film genre:{this.updateGenres(genres)}</p>
                             <p>Release Date: {release_date}</p>     
                             <p>{runtime} minutes</p>
                         </section>
