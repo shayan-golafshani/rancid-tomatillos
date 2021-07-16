@@ -1,13 +1,14 @@
 
 .description{
-    font-size: 1.5em;;
+    font-size: 1.5em;
 }
 .details {
-    width: 50vw;
+    width: 80vw;
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 2.5em;
+    padding: 0 2.5rem 2.5rem 2.5rem;
+    overflow: scroll;
 }
 
 .details-content{
@@ -22,6 +23,7 @@
     font-size: 2.3em;
     margin-bottom: 2vh;
     text-transform: uppercase;
+    text-align: center;
     font-weight:900;
 }
 
@@ -35,6 +37,11 @@
 
 .go-back-btn {
     align-self:flex-end;
+    background-color: transparent;
+    border: none;
+    height: 50px;
+    width: 50px;
+    margin: 2rem 0 0 2rem;
 
 }
 /* .backdrop{
@@ -55,3 +62,73 @@
     align-content:center; */
 }
 
+
+@media screen and (min-width: 600px){
+
+    .description{
+        font-size: 2em;;
+    }
+    .details {
+        width: 50vw;
+        height: auto;
+        padding: 2.5rem;
+        border-radius: 3rem;;
+        color: white;
+        background: rgba(44, 54, 63, .75);
+        display: flex;
+        flex-direction: column;
+        overflow: none;
+    }
+    
+    .details-content{
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-direction: column;
+        margin:0;
+        padding:0;
+        /* overflow: scroll; */
+    }
+    
+    .details-title{
+        font-size: 2.3em;
+        margin-bottom: 2vh;
+        text-transform: uppercase;
+        font-weight:900;
+    }
+    
+    .details-wrap {
+        font-family: 'Roboto Condensed', sans-serif;
+        height: 100vh;
+        /* display: flex;
+        flex-direction: column; */
+    }
+    
+    
+    .go-back-btn {
+        align-self:flex-end;
+        height: 100px;
+        width: 100px;
+        padding: 2rem 0 0 2rem;
+    
+    }
+    /* .backdrop{
+        opacity: 0.4;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        object-fit: fill;
+    } */
+    
+    .movie-trailer{
+        /* width: 100vw; */
+        /* height: 100vh; */
+        /* display: flex;
+        justify-content: center;
+        align-content:center; */
+    }
+
+}
