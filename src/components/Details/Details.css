@@ -19,6 +19,13 @@
     flex-direction: column;
 }
 
+.details-styling {
+    padding: 2.5rem;
+    border-radius: 3rem;;
+    background: rgba(44, 54, 63, .75);
+    overflow: scroll;
+}
+
 .details-title{
     font-size: 2.3em;
     margin-bottom: 2vh;
@@ -57,9 +64,14 @@
 .movie-trailer{
     /* width: 100vw; */
     height: 50vh;
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-content:center; */
+    align-content:center;
+}
+
+.tagline{
+    text-align: center;
+    padding-bottom: 2rem;
 }
 
 
@@ -71,10 +83,10 @@
     .details {
         width: 50vw;
         height: auto;
-        padding: 2.5rem;
+        /* padding: 2.5rem;
         border-radius: 3rem;;
+        background: rgba(44, 54, 63, .75); */
         color: white;
-        background: rgba(44, 54, 63, .75);
         display: flex;
         flex-direction: column;
         overflow: none;
@@ -91,6 +103,13 @@
         /* overflow: scroll; */
     }
     
+    .details-styling {
+        padding: 2.5rem;
+        border-radius: 3rem;;
+        background: rgba(44, 54, 63, .75);
+        overflow: scroll;
+    }
+
     .details-title{
         font-size: 2.3em;
         margin-bottom: 2vh;
@@ -124,11 +143,11 @@
     } */
     
     .movie-trailer{
-        /* width: 100vw; */
-        /* height: 100vh; */
-        /* display: flex;
+        /* width: 100vw; 
+        height: 100vh; */
+        display: flex; 
         justify-content: center;
-        align-content:center; */
+        align-content:center;
     }
 
 }
