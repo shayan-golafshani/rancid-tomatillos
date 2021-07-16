@@ -47,17 +47,18 @@ class Details extends React.Component {
 
     render() {
 
-        const {
-            id,
-            backdrop_path,
-            overview,
-            release_date,
-            average_rating,
-            genres,
-            runtime,
-            tagline,
-            title,
-            } = this.state.movie;
+    const {
+        id,
+        backdrop_path,
+        overview,
+        release_date,
+        average_rating,
+        genres,
+        runtime,
+        tagline,
+        title,
+        } = this.state.movie;
+
 
             const backgroundStyle = {
                 overflow: 'hidden',
@@ -69,25 +70,27 @@ class Details extends React.Component {
 
             let details = 
             <section className='details-content'>
-                <section className='details'>
-                    <h2 className='details-title'>{title}</h2>
-                    <p>{tagline}</p>
-                    <h3 className='description'>Description</h3>
-                    <p>{overview}</p>
-                    <section className='minor-details'>
-                        <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                        <p>Film genre: {genres}</p>
-                        <p>Release Date: {release_date}</p>     
-                        <p>{runtime} minutes</p>
+                <div className='details-styling'>
+                    <section className='details'>
+                        <h2 className='details-title'>{title}</h2>
+                        <p className='tagline'>{tagline}</p>
+                        <section className='minor-details'>
+                            <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
+                            <p>Film genre:{genres}</p>
+                            <p>Release Date: {release_date}</p>     
+                            <p>{runtime} minutes</p>
+                        </section>
+                        <h3 className='description'>Description</h3>
+                        <p>{overview}</p>
                     </section>
-                </section>
-                <section className='movie-trailer'>
-                    {
-                        this.state.movieTrailers.length  && 
-                        <MovieTrailer
-                        movieKey={this.state.movieTrailers[0].key} />
-                    }
-                </section>
+                    <section className='movie-trailer'>
+                        {
+                            this.state.movieTrailers.length  && 
+                            <MovieTrailer
+                            movieKey={this.state.movieTrailers[0].key} />
+                        }
+                    </section>
+                </div>
             </section>
 
         return (
