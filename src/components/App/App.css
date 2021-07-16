@@ -27,7 +27,14 @@ nav{
 }
 
 h1 {
-font-family: 'Monoton', cursive;
-font-size: 3rem;;
-align-self: center;
+  font-family: 'Monoton', cursive;
+  font-size: 2.5rem;;
+  align-self: center;
+}
+
+@media screen and (min-width: 600px) {
+  h1 {
+    font-size: 3.5rem;
+
+  }
 }
