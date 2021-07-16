@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import Error from '../Error/Error';
-import './Details.css'
+import './Details.css';
+import arrow from  '../../back-arrow.png';
 
 class Details extends React.Component {
     constructor(){
@@ -96,14 +97,11 @@ class Details extends React.Component {
                 style={backgroundStyle}
             >
                 <Link to='/'>
-                    <button className='go-back-btn'>Go Back</button>
+                <button className='go-back-btn'><img src={arrow} alt='Go Home' /></button>
                 </Link>
                 {(!Object.keys(this.state.movie).length && !this.state.movieTrailers.length && !this.state.errorMessage)
                  && <Loading />}
                 {this.state.errorMessage ? <Error /> : details}
-                {
-                //<h2 className='error-message'> {this.state.errorMessage} </h2>
-                }
             </section>
         )
     }
