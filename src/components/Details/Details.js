@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import Error from '../Error/Error';
-import './Details.css'
+import './Details.css';
+import arrow from  '../../back-arrow.png';
+import dayjs from 'dayjs';
+
 
 class Details extends React.Component {
     constructor(){
@@ -43,19 +46,27 @@ class Details extends React.Component {
           .then(promise => console.log(promise));
     }
 
+    updateGenres(genres){
+        if(genres) {
+            return genres.join(' | ')
+        }
+        return ''
+    }
+
     render() {
 
-        const {
-            id,
-            backdrop_path,
-            overview,
-            release_date,
-            average_rating,
-            genres,
-            runtime,
-            tagline,
-            title,
-            } = this.state.movie;
+    const {
+        id,
+        backdrop_path,
+        overview,
+        release_date,
+        average_rating,
+        genres,
+        runtime,
+        tagline,
+        title,
+        } = this.state.movie;
+
 
             const backgroundStyle = {
                 overflow: 'hidden',
@@ -65,27 +76,32 @@ class Details extends React.Component {
                  backgroundSize: 'cover'
             }
 
+        let date = dayjs(release_date).format('MM/DD/YYYY');
+
+
             let details = 
             <section className='details-content'>
-                <section className='details'>
-                    <h2 className='details-title'>{title}</h2>
-                    <p>{tagline}</p>
-                    <h3 className='description'>Description</h3>
-                    <p>{overview}</p>
-                    <section className='minor-details'>
-                        <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                        <p>Film genre: {genres}</p>
-                        <p>Release Date: {release_date}</p>     
-                        <p>{runtime} minutes</p>
+                <div className='details-styling'>
+                    <section className='details'>
+                        <h2 className='details-title'>{title}</h2>
+                        <p className='tagline'>{tagline}</p>
+                        <section className='minor-details'>
+                            <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
+                            <p>{this.updateGenres(genres)}</p>
+                            <p>Release Date: {date}</p>     
+                            <p>{runtime} minutes</p>
+                        </section>
+                        <h3 className='description'>Description</h3>
+                        <p className='overview'>{overview}</p>
                     </section>
-                </section>
-                <section className='movie-trailer'>
-                    {
-                        this.state.movieTrailers.length  && 
-                        <MovieTrailer
-                        movieKey={this.state.movieTrailers[0].key} />
-                    }
-                </section>
+                    <section className='movie-trailer'>
+                        {
+                            this.state.movieTrailers.length  && 
+                            <MovieTrailer
+                            movieKey={this.state.movieTrailers[0].key} />
+                        }
+                    </section>
+                </div>
             </section>
 
         return (
@@ -95,14 +111,11 @@ class Details extends React.Component {
                 style={backgroundStyle}
             >
                 <Link to='/'>
-                    <button className='go-back-btn'>Go Back</button>
+                <button className='go-back-btn'><img src={arrow} alt='Go Home' /></button>
                 </Link>
                 {(!Object.keys(this.state.movie).length && !this.state.movieTrailers.length && !this.state.errorMessage)
                  && <Loading />}
                 {this.state.errorMessage ? <Error /> : details}
-                {
-                //<h2 className='error-message'> {this.state.errorMessage} </h2>
-                }
             </section>
         )
     }
