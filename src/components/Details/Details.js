@@ -5,6 +5,8 @@ import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import Error from '../Error/Error';
 import './Details.css';
 import arrow from  '../../back-arrow.png';
+import dayjs from 'dayjs';
+
 
 class Details extends React.Component {
     constructor(){
@@ -74,6 +76,9 @@ class Details extends React.Component {
                  backgroundSize: 'cover'
             }
 
+        let date = dayjs(release_date).format('MM/DD/YYYY');
+
+
             let details = 
             <section className='details-content'>
                 <div className='details-styling'>
@@ -83,7 +88,7 @@ class Details extends React.Component {
                         <section className='minor-details'>
                             <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
                             <p>{this.updateGenres(genres)}</p>
-                            <p>Release Date: {release_date}</p>     
+                            <p>Release Date: {date}</p>     
                             <p>{runtime} minutes</p>
                         </section>
                         <h3 className='description'>Description</h3>
