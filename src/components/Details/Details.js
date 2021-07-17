@@ -9,7 +9,6 @@ import arrow from  '../../back-arrow.png';
 class Details extends React.Component {
     constructor(){
         super()
-
         this.state = {
             errorMessage: '',
             movie: {},

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
 import Loading from '../Loading/Loading';
@@ -44,6 +44,7 @@ class App extends Component {
             <h1>Rancid Tomatillos</h1>
           </nav>
         
+          <Switch>
             <Route exact path='/'>
               {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
               {this.state.errorMessage &&  <Error />}
@@ -52,10 +53,16 @@ class App extends Component {
               <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
             </Route>
 
-            <Route path='/:id' render={({match}) => {
+            <Route path='/:id/:invalidPath'> 
+              <Error /> 
+            </Route>
+
+            <Route path='/:id' render={({ match }) => {
               const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
-              return <Details {...selectedMovie}/>
+              return !selectedMovie ? <Error /> : <Details {...selectedMovie}/>
             }} />
+
+          </Switch>
         </main>
   
     )
