@@ -45,22 +45,23 @@ class App extends Component {
           </nav>
         
           <Switch>
-            <Route exact path='/'>
-              {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
-              {this.state.errorMessage &&  <Error />}
-              {//<h2 className='error-message'> {this.state.errorMessage} </h2> 
-              }
-              <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
-            </Route>
 
             <Route path='/:id/:invalidPath'> 
               <Error /> 
             </Route>
 
-            <Route path='/:id' render={({ match }) => {
+            <Route exact path='/:id' render={({ match }) => {
               const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
               return !selectedMovie ? <Error /> : <Details {...selectedMovie}/>
             }} />
+
+            <Route exact path='/'>
+              {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
+              {this.state.errorMessage &&  <Error />}
+              <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
+            </Route>
+
+            <Route component={Error} />
 
           </Switch>
         </main>
