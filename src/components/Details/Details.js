@@ -82,12 +82,12 @@ class Details extends React.Component {
                         <p className='tagline'>{tagline}</p>
                         <section className='minor-details'>
                             <p>{parseFloat(average_rating).toFixed(1)} ⭐️</p>
-                            <p>Film genre:{this.updateGenres(genres)}</p>
+                            <p>{this.updateGenres(genres)}</p>
                             <p>Release Date: {release_date}</p>     
                             <p>{runtime} minutes</p>
                         </section>
                         <h3 className='description'>Description</h3>
-                        <p>{overview}</p>
+                        <p className='overview'>{overview}</p>
                     </section>
                     <section className='movie-trailer'>
                         {
