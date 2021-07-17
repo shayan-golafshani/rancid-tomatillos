@@ -8,7 +8,6 @@ import './Details.css'
 class Details extends React.Component {
     constructor(){
         super()
-
         this.state = {
             errorMessage: '',
             movie: {},
