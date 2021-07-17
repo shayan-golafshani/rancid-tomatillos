@@ -14,7 +14,7 @@ const Error = (props) => {
                 {
                     //<h2>{props.type}</h2>
                 }
-                <h3>Something went wrong please try again</h3>
+                <h3 className='error-message'>Something went wrong. Click here to be redirected</h3>
             </Link>
             <img id='error-gif' src='https://media.giphy.com/media/KXBtTtm3kB8BO/giphy.gif' alt='disappointed animated tomato'/>
         </div>
