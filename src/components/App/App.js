@@ -73,7 +73,7 @@ class App extends Component {
               { this.state.movies.length && 
               <input 
                 type="text" 
-                placeholder="Search by movie title" 
+                placeholder="Search by movie title 🍅" 
                 value={this.state.searchBarValue}
                 onChange={e => this.filterOnSearch(e)}
               /> 
