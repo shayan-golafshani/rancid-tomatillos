@@ -15,7 +15,7 @@ const filterMovieDetails = (movieDetails) => {
         'id': id,
         'title': title,
         'tagline': tagline,
-        'ratimg': average_rating,
+        'average_rating': average_rating,
         'genres': genres,
         'release_date': release_date,
         'runtime': runtime,

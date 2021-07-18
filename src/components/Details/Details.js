@@ -30,7 +30,7 @@ class Details extends React.Component {
             .catch(err => {
                 this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
             });
-        
+
         getMovieTrailer(this.props.id)
             .then(data => {
                 const trailer = filterVideo(data)
@@ -60,8 +60,6 @@ class Details extends React.Component {
                  url(${movie.backdrop_path})`,
                  backgroundSize: 'cover'
             }
-
-
 
          let details = 
             <section className='details-content'>
