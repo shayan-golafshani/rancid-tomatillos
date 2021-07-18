@@ -33,13 +33,16 @@ align-self: center;
 }
 
 main input {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   /* align-items: ; */
   /* align-self: center; */
   margin-top:  20px;
-  width:  300px;
+  width:  30%;
   height: 40px;
-  font-size: 20px;
-  padding-left:10px;
+  font-size: 22px;
+  padding-left:10px; 
+  margin-left: 33.3%;
+  text-align: center;
+  border-radius: 20px;
 }
