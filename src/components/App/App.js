@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
-import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 import { getAllMovies } from '../../apiCalls';
+import Loading from '../Loading/Loading';
+import Movies from '../Movies/Movies';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 

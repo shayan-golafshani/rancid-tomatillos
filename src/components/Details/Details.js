@@ -1,13 +1,14 @@
-import React from 'react'
+import arrow from  '../../back-arrow.png';
+import dayjs from 'dayjs';
+import Error from '../Error/Error';
+import { filterMovieDetails, filterVideo } from '../../utilities';
+import { getMovieDetails, getMovieTrailer } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
-import { getMovieDetails, getMovieTrailer } from '../../apiCalls';
-import { filterMovieDetails, filterVideo } from '../../utilities';
-import Error from '../Error/Error';
+import PropTypes from 'prop-types';
+import React from 'react';
 import './Details.css';
-import arrow from  '../../back-arrow.png';
-import dayjs from 'dayjs';
 
 
 class Details extends React.Component {
@@ -53,13 +54,13 @@ class Details extends React.Component {
         let movie = this.state.movie
         let date = dayjs(movie.release_date).format('MM/DD/YYYY');
 
-            const backgroundStyle = {
-                overflow: 'hidden',
-                backgroundImage:
-                `linear-gradient(to right, #1C1D1E, 60%, transparent),
-                 url(${movie.backdrop_path})`,
-                 backgroundSize: 'cover'
-            }
+        const backgroundStyle = {
+            overflow: 'hidden',
+            backgroundImage:
+            `linear-gradient(to right, #1C1D1E, 60%, transparent),
+                url(${movie.backdrop_path})`,
+                backgroundSize: 'cover'
+        }
 
          let details = 
             <section className='details-content'>
@@ -98,4 +99,9 @@ class Details extends React.Component {
         )
     }
 } 
+
+Details.propTypes = {
+    id: PropTypes.number.isRequired
+}
+
 export default Details
