@@ -1,5 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import React from 'react'
 import './MovieCard.css'
 
 const MovieCard = ({id, title, rating, imageSrc, displayMovie}) => {
@@ -15,6 +16,14 @@ const MovieCard = ({id, title, rating, imageSrc, displayMovie}) => {
             </article>
         </Link>
     )
+}
+
+MovieCard.propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string,
+    rating: PropTypes.number,
+    imageSrc: PropTypes.string,
+    displayMovie: PropTypes.func
 }
 
 export default MovieCard
