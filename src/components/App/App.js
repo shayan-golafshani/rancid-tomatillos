@@ -7,11 +7,14 @@ import Error from '../Error/Error';
 import { getAllMovies } from '../../apiCalls';
 import './App.css';
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
+      searchBarValue:'',
+      filteredMovies: [],
       selectedMovie: {},
       errorMessage: '',
       loadingMessage:'',
@@ -33,7 +36,23 @@ class App extends Component {
 
    displayMovie = (id) => {
     let selectedMovie = this.state.movies.find(movie => id === movie.id)
-    this.setState({selectedMovie});
+    this.setState(
+      {selectedMovie,
+       searchBarValue:'',
+       filteredMovies:[],
+      }
+    );
+  }
+
+  filterOnSearch = (e) => {
+    
+    this.setState({searchBarValue: e.target.value})
+    this.setState(prevState => {
+    }, () => {
+      let filteredMovies = this.state.movies.filter(
+        movie => movie.title.toLowerCase().includes(this.state.searchBarValue.toLowerCase()))
+      this.setState({filteredMovies})
+    })
   }
  
   render() {
@@ -43,19 +62,36 @@ class App extends Component {
           <h1>Rancid Tomatillos</h1>
         </nav>
           <Switch>
+
             <Route path='/:id/:invalidPath'> 
               <Error /> 
             </Route>
+
             <Route exact path='/:id' render={({ match }) => {
               const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
               return !selectedMovie ? <Error /> : <Details {...selectedMovie}/>
             }} />
+
             <Route exact path='/'>
               {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
               {this.state.errorMessage &&  <Error />}
-              <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
+
+              { this.state.movies.length && 
+              <input 
+                type="text" 
+                placeholder="Search by movie title 🍅" 
+                value={this.state.searchBarValue}
+                onChange={e => this.filterOnSearch(e)}
+              /> 
+              }
+              <Movies movies={!this.state.filteredMovies.length ?
+                this.state.movies : 
+                this.state.filteredMovies } 
+                displayMovie={this.displayMovie}/> 
             </Route>
+
             <Route component={Error} />
+            
           </Switch>
       </main>
     )
