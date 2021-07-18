@@ -1,5 +1,6 @@
-import React from 'react'
 import MovieCard from '../MovieCard/MovieCard'
+import PropTypes from 'prop-types';
+import React from 'react'
 import './Movies.css'
 
 const Movies = ({movies, displayMovie}) => {
@@ -23,5 +24,10 @@ const Movies = ({movies, displayMovie}) => {
          </section>
      )
 
+}
+
+Movies.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.object),
+    displayMovie: PropTypes.func
 }
 export default Movies;
