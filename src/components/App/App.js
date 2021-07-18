@@ -38,34 +38,26 @@ class App extends Component {
  
   render() {
     return (
-      
-        <main>
-          <nav>
-            <h1>Rancid Tomatillos</h1>
-          </nav>
-        
+      <main>
+        <nav>
+          <h1>Rancid Tomatillos</h1>
+        </nav>
           <Switch>
-
             <Route path='/:id/:invalidPath'> 
               <Error /> 
             </Route>
-
             <Route exact path='/:id' render={({ match }) => {
               const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
               return !selectedMovie ? <Error /> : <Details {...selectedMovie}/>
             }} />
-
             <Route exact path='/'>
               {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
               {this.state.errorMessage &&  <Error />}
               <Movies  movies={this.state.movies} displayMovie={this.displayMovie}/> 
             </Route>
-
             <Route component={Error} />
-
           </Switch>
-        </main>
-  
+      </main>
     )
    }
 }
