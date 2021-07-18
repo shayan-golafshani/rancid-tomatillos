@@ -4,6 +4,7 @@ import Movies from '../Movies/Movies';
 import Details from '../Details/Details';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
+import { getAllMovies } from '../../apiCalls';
 import './App.css';
 
 class App extends Component {
@@ -18,17 +19,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
-      .then(response => response.json())
+
+    getAllMovies()
       .then(data => {
-        let movies = data.movies
+        const movies = data.movies;
         this.setState({movies})
       })
       .catch(err => {
-        console.error(err, 'Error caught in get all movies request')
-
         this.setState({errorMessage: 'Our site is down please try again later 😔'})
-      });
+      })
+
   }
 
    displayMovie = (id) => {
