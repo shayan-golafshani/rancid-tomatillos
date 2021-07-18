@@ -68,6 +68,12 @@ class App extends Component {
             </Route>
 
             <Route exact path='/:id' render={({ match }) => {
+              const { id } = match.params
+              const regex = new RegExp('^[0-9]{6}$')
+              if (!regex.test(id.toString())) {
+                return <Error/>
+              }
+
               const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
               return !selectedMovie ? <Error /> : <Details {...selectedMovie}/>
             }} />
