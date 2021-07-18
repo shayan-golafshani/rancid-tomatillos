@@ -25,9 +25,9 @@ const filterMovieDetails = (movieDetails) => {
     return filteredDetails
 }
 
-const filteredVideo = (movieTrailers) => {
-    const singleVideo = movieTrailers[0].key
+const filterVideo = (movieTrailers) => {
+    const singleVideo = movieTrailers.videos[0].key
     return singleVideo
 }
 
-export { filterMovieDetails, filteredVideo }
+export { filterMovieDetails, filterVideo }
