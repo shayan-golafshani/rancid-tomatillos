@@ -67,12 +67,12 @@ class App extends Component {
               <Error /> 
             </Route>
 
-            <Route exact path='/:id' render={({ match }) => {
+            <Route path='/:id' render={({ match }) => {
               const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id))
               return !selectedMovie ? <Error /> : <Details {...selectedMovie}/>
             }} />
 
-            <Route exact path='/'>
+            <Route exact path='/rancid-tomatillos'>
               {(!this.state.movies.length && !this.state.errorMessage) && <Loading /> }
               {this.state.errorMessage &&  <Error />}
 
