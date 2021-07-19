@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Rancid Tomatillos 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+  - [Overview](https://github.com/shayan-golafshani/rancid-tomatillos#overview)
+  - [Learning Goals](https://github.com/shayan-golafshani/rancid-tomatillos#learning-goals)
+  - [Features](https://github.com/shayan-golafshani/rancid-tomatillos#features)
+  - [Setup](https://github.com/shayan-golafshani/rancid-tomatillos#setup)
+  - [Technologies Used](https://github.com/shayan-golafshani/rancid-tomatillos#technologies-used)
+  - [Libraries](https://github.com/shayan-golafshani/rancid-tomatillos#libraries)
+  - [Project Reflection](https://github.com/shayan-golafshani/rancid-tomatillos#project-reflection)
+  - [Contributors](https://github.com/shayan-golafshani/rancid-tomatillos#contributors)
+ 
 
-## Available Scripts
+### Overview
+A [Turing](https://turing.edu/) Mod 3 Frontend paired project.
 
-In the project directory, you can run:
+Original project spec can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
 
-### `npm start`
+Deployed application can be viewed [here](https://shayan-rancid-tomatillos.herokuapp.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Rancid Tomatillos is an application that can be used to look for details about specific movies. Users can search for a movie or scroll through the available options. When a user hovers over a movie poster, the title and rating will appear. The user can click on specific movies they want to know more about and see an overview and movie trailer (if available). 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Learning Goals
 
-### `npm test`
+- Gain competency with React fundamentals
+- Learn how to test React components & asynchronous JS
+- Create a multi-page UX using Router
+- Implement loading states and error handling for a better user experience
+- Write modular code and follow SRP
+- Make network requests using RESTful APIs
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features
 
-### `npm run build`
+#### Home page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Home(4)](https://user-images.githubusercontent.com/78318468/126234518-b64feb1b-09e3-4d4d-b1bc-e4bd6b31b554.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Search bar functionality
 
-### `npm run eject`
+![Search(2)](https://user-images.githubusercontent.com/78318468/126234141-4ab9e924-dbfe-472c-a263-fdef5374f044.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Movie details 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![DetailsClick](https://user-images.githubusercontent.com/78318468/126234163-cf217c82-8c36-4c17-a499-1172b8e2e51e.gif)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![DetailsHome](https://user-images.githubusercontent.com/78318468/126234186-69f7fe62-d452-476e-9b8d-09371217b520.gif)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Mobile View 
 
-### Code Splitting
+<img src="https://user-images.githubusercontent.com/78318468/126230353-f8691a7d-c3d5-4d77-aad7-d5963bc25ff9.gif" width="300" height="642"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Setup
 
-### Making a Progressive Web App
+1. Clone this [repository](https://github.com/shayan-golafshani/rancid-tomatillos)
+2. `cd` into the repo from your terminal
+3. Run `npm i` in your terminal to install dependencies
+4. Run `npm start` in your terminal to start the app in your browser
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Technologies Used
+  - React
+  - Router
+  - Cypress
+  - WebPack
+  - CSS
+  - HTML
+  - GitHub
+  - Heroku
+  - API run locally via Heroku
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Libraries
+  - [DayJS](https://www.npmjs.com/package/dayjs): used for release date formatting 
 
-### Deployment
+### Project Reflection
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Wins
+- React cut our development time at least in half, if not more. 
+- We learned Cypress basics
+- We were able to almost fully implement Router before the lesson 
+- Implemented a controlled live search 
 
-### `npm run build` fails to minify
+#### Challenges
+- Learning Cypress syntax
+- Redirecting to Error pages with Router
+- Checking for edge case URLs with regular expressions and match params 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Contributors
+[Ashton Huxtable](https://github.com/ashton-huxtable)
+
+[Shayan Golafshani](https://github.com/shayan-golafshani)
+
+
