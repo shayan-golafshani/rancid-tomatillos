@@ -37,10 +37,7 @@ class Details extends React.Component {
     }
 
     updateGenres(genres){
-        if(genres) {
-            return genres.join(' | ')
-        }
-        return ''
+        return genres ? genres.join(' | ') : '';
     }
 
     render() {
