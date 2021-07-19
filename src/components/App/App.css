@@ -1,8 +1,10 @@
-/* --xiketic: #140100ff;
+/* 
+--xiketic: #140100ff;
 --gunmetal: #2c363fff;
 --xanadu: #808f85ff;
 --white: #ffffffff;
---honey-yellow: #f6ae2dff; */
+ */
+
 * {
   margin: 0;
 }
@@ -32,24 +34,32 @@ h1 {
   align-self: center;
 }
 
+main input {
+  margin-top:  20px;
+  width:  60vw;
+  height: 40px;
+  font-size: 22px;
+  padding-left:10px; 
+  margin-left: 20vw;
+  text-align: center;
+  border-radius: 20px;
+}
+
 @media screen and (min-width: 600px) {
   h1 {
     font-size: 3.5rem;
 
   }
+  main input {
+    margin-top:  20px;
+    width:  30%;
+    height: 40px;
+    font-size: 22px;
+    padding-left:10px; 
+    margin-left: 33.3%;
+    text-align: center;
+    border-radius: 20px;
+  }
 }
 
-main input {
-  /* display: flex;
-  justify-content: center; */
-  /* align-items: ; */
-  /* align-self: center; */
-  margin-top:  20px;
-  width:  30%;
-  height: 40px;
-  font-size: 22px;
-  padding-left:10px; 
-  margin-left: 33.3%;
-  text-align: center;
-  border-radius: 20px;
-}
+
