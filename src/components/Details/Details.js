@@ -34,24 +34,6 @@ class Details extends React.Component {
             .catch(err => {
                 this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
             });
-
-        // getMovieDetails(this.props.id)
-        //     .then(data => {
-        //         const movieDetails = filterMovieDetails(data)
-        //         this.setState({movie: movieDetails})
-        //     })
-        //     .catch(err => {
-        //         this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
-        //     });
-
-        // getMovieTrailer(this.props.id)
-        //     .then(data => {
-        //         const trailer = filterVideo(data)
-        //         this.setState({movieKey: trailer})
-        //     })
-        //     .catch(err => {
-        //         this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
-        //     });
     }
 
     updateGenres(genres){
