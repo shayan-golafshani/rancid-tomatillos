@@ -2,7 +2,7 @@ import arrow from  '../../back-arrow.png';
 import dayjs from 'dayjs';
 import Error from '../Error/Error';
 import { filterMovieDetails, filterVideo } from '../../utilities';
-import { getMovieDetails, getMovieTrailer } from '../../apiCalls';
+import { getAllMovieDetails, getMovieDetails, getMovieTrailer } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
@@ -22,24 +22,36 @@ class Details extends React.Component {
     }
 
     componentDidMount() {
-
-        getMovieDetails(this.props.id)
+        getAllMovieDetails(this.props.id)
             .then(data => {
-                const movieDetails = filterMovieDetails(data)
-                this.setState({movie: movieDetails})
+                const movieDetails = filterMovieDetails(data[0])
+                const trailer = filterVideo(data[1])
+                this.setState({
+                    movie: movieDetails,
+                    movieKey: trailer,
+                })
             })
             .catch(err => {
                 this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
             });
 
-        getMovieTrailer(this.props.id)
-            .then(data => {
-                const trailer = filterVideo(data)
-                this.setState({movieKey: trailer})
-            })
-            .catch(err => {
-                this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
-            });
+        // getMovieDetails(this.props.id)
+        //     .then(data => {
+        //         const movieDetails = filterMovieDetails(data)
+        //         this.setState({movie: movieDetails})
+        //     })
+        //     .catch(err => {
+        //         this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
+        //     });
+
+        // getMovieTrailer(this.props.id)
+        //     .then(data => {
+        //         const trailer = filterVideo(data)
+        //         this.setState({movieKey: trailer})
+        //     })
+        //     .catch(err => {
+        //         this.setState({errorMessage: 'Something went wrong, please try again later 😔'})
+        //     });
     }
 
     updateGenres(genres){
