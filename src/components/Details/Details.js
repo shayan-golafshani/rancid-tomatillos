@@ -2,7 +2,7 @@ import arrow from  '../../back-arrow.png';
 import dayjs from 'dayjs';
 import Error from '../Error/Error';
 import { filterMovieDetails, filterVideo } from '../../utilities';
-import { getAllMovieDetails, getMovieDetails, getMovieTrailer } from '../../apiCalls';
+import { getAllMovieDetails } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
