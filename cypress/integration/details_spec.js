@@ -18,18 +18,30 @@ describe('User Movie Details flows', () => {
             })
         })
 
-        cy.visit('http://localhost:3000/');
+        cy.visit('http://localhost:3000/694919');
+        cy.wait(250)
     })
 
+    // it('Should contain some ratings', () => {
+    //     cy.visit('http://localhost:3000/337401')
+    //     cy.window.contains('rating')
+    //     cy.window.contains('minutes')
+    // })
+
     it('Each set of movie details should contain a go back button that returns user to home page', () => {
-
         cy.url().then(url => {
-        
-            cy.get('button').should('contain', 'Go Back')
-            .click()
-
+            cy.get('button').click()
             cy.url().should('not.eq', url);
           });
     })
+
+    it('Each details page should contain an iframe with an embedded youtube video that can be clicked', () => {
+        
+    })
+
+    it('Should show a redirect page if the network request cannot be processed.', () => {
+
+    })
+
 
 })
