@@ -22,11 +22,6 @@ describe('User Movie Details flows', () => {
         cy.wait(250)
     })
 
-    // it('Should contain some ratings', () => {
-    //     cy.visit('http://localhost:3000/337401')
-    //     cy.window.contains('rating')
-    //     cy.window.contains('minutes')
-    // })
 
     it('Each set of movie details should contain a go back button that returns user to home page', () => {
         cy.url().then(url => {
@@ -36,12 +31,19 @@ describe('User Movie Details flows', () => {
     })
 
     it('Each details page should contain an iframe with an embedded youtube video that can be clicked', () => {
-        
+        cy.wait(1000)
+        cy.get('iframe').then(video => {
+            const element = video[0]
+            console.log(video[0])
+            element.muted = true;
+            element.oncanplay= true;
+            return video;
+        }).click();
     })
 
     it('Should show a redirect page if the network request cannot be processed.', () => {
-
+        cy.visit('http://localhost:3000/694919fjg')
+        cy.get('h3').contains('Something went wrong')
     })
-
 
 })
